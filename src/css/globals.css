@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    background-color: antiquewhite;
+}
+
+.level-box {
+    background-color: beige;
+    width: 90%;
+    height: 100px;
+    border: 6px black solid;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding: 5px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "level-title max-acc"
+        "level-description max-question-count";
+    cursor: pointer;
+}
+
+.locked-level-box {
+    background-color: darkkhaki;
+    width: 90%;
+    height: 100px;
+    border: 6px black solid;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding: 5px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "level-title"
+        "level-description";
+}
+
+.level-box:hover {
+    border-color: rgb(165, 87, 42);
+}
+
+.level-title {
+    grid-area: level-title;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.level-description {
+    grid-area: level-description;
+    display: flex;
+    align-items: flex-end;
+    font-size: 25px;
+}
+
+.max-acc {
+    grid-area: max-acc;
+    font-size: 25px;
+    text-align: end;
+}
+
+.max-question-count {
+    grid-area: max-question-count;
+    font-size: 25px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.back-button {
+    width: 400px;
+    font-size: 35px;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.back-button:hover {
+    background-color: rgb(117, 235, 195);
+    cursor: pointer;
+}
+
+.level-button {
+    margin: 20px;
+    font-size: 35px;
+    background-color: cyan;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.level-button:hover {
+    background-color: rgb(0, 228, 228);
+    cursor: pointer;
+}
+
+input.ans {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    border: 2px black solid;
+    border-radius: 4px;
+}
+
+input.ans:focus {
+    border-color: rgb(100, 145, 204);
+    outline: none;
+}
+
+h2 {
+    text-align: center;
+}
+
+.status-bar > span {
+    margin: 30px;
+    font-size: 25px;
+}
