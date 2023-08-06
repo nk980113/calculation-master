@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tauri dev --no-watch",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "build": "tauri build",
     "tauri": "tauri"
   },
   "dependencies": {
