@@ -38,7 +38,7 @@ export default function LevelResult({ questionCount, totalTime = 60, levelId }: 
             <h3>{'⭐'.repeat(accStarCount) + '★'.repeat(3 - accStarCount)}</h3>
             {wasSpeedUnlocked && (
                 <>
-                    <h2>每秒答對{speed.toFixed(2)}題 {newRecSpeed && <span style={{ color: 'red' }}>新紀錄！</span>}</h2>
+                    <h2>每秒答對{speed.toFixed(3)}題 {newRecSpeed && <span style={{ color: 'red' }}>新紀錄！</span>}</h2>
                     <h3>{'⭐'.repeat(questionStarCount) + '★'.repeat(3 - questionStarCount)}</h3>
                 </>
             )}

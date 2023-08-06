@@ -2,7 +2,6 @@
 
 import LevelMenuButton from './LevelMenuButton';
 import { useMemo, useState } from 'react';
-import SingleInputForm from './SingleInputForm';
 import levelIndex, { LevelID } from '@/levels';
 import StatusBar from './StatusBar';
 import useLevelData from '@/hooks/useLevelData';
@@ -16,6 +15,7 @@ export default function Game({ back, levelId }: {
     const [questionCount, setQuestionCount] = useState<[number, number]>([0, 0]);
     const { speedUnlocked } = useLevelData(levelId);
     const level = levelIndex[levelId];
+    const Input = level.inputBox;
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const question = useMemo(level.questionGen, [questionCount]);
     return (
@@ -23,7 +23,7 @@ export default function Game({ back, levelId }: {
             {isEnded ? (
                 <LevelResult
                     questionCount={questionCount}
-                    totalTime={60}
+                    totalTime={level.time}
                     levelId={levelId}
                 />
             ) : (
@@ -32,9 +32,10 @@ export default function Game({ back, levelId }: {
                         onEnd={() => setIsEnded(true)}
                         questionCount={questionCount}
                         speedUnlocked={speedUnlocked}
+                        totalTime={level.time}
                     />
                     <h2>{question[0]}</h2>
-                    <SingleInputForm confirm={(ans) => {
+                    <Input confirm={(ans) => {
                         setQuestionCount(([correct, total]) => [correct + Number(ans.every((v, i) => question[1][i] === v)), total + 1]);
                     }} key={question[2]} />
                 </>

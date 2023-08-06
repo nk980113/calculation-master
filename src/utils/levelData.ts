@@ -7,7 +7,7 @@ export default function levelData(saveData: LevelData) {
     const level = levelIndex[saveData.levelId];
     const accStarCount = accThreshold.findLastIndex(v => v <= saveData.maxAccuracy) + 1;
     const { maxQuestionCountThreshold } = level;
-    const questionStarCount = maxQuestionCountThreshold.findIndex(v => v <= saveData.maxQuestionCount) + 1;
+    const questionStarCount = maxQuestionCountThreshold.findLastIndex(v => v <= saveData.maxQuestionCount) + 1;
     const totalStarCount = accStarCount + questionStarCount;
     const speedUnlocked = accStarCount > 1;
 

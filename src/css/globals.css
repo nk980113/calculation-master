@@ -49,6 +49,10 @@ body {
     font-weight: bold;
 }
 
+.level-title.hard {
+    color: red;
+}
+
 .level-description {
     grid-area: level-description;
     display: flex;

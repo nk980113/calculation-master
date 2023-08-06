@@ -24,6 +24,6 @@ export function toBackend(data: LevelData[]): BackendLevelData[] {
     return data.map(({ levelId, maxAccuracy, maxQuestionCount }) => ({
         level_id: levelId,
         max_accuracy: maxAccuracy.toFixed(2),
-        max_question_count: maxQuestionCount.toFixed(2),
+        max_question_count: maxQuestionCount.toFixed(3),
     }));
 }
