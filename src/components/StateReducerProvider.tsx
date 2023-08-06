@@ -1,3 +1,4 @@
+import { LevelID } from '@/levels';
 import { LevelData } from '@/utils/backend';
 import { Dispatch, createContext } from 'react';
 import { useImmerReducer } from 'use-immer';
@@ -5,7 +6,7 @@ import { useImmerReducer } from 'use-immer';
 export const LevelDataContext = createContext<LevelData[]>([]);
 
 export type DispatchAction = {
-    levelId: string;
+    levelId: LevelID;
     updateKey: 'maxAccuracy' | 'maxQuestionCount';
     value: number;
 };
