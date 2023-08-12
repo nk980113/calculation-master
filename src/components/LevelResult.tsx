@@ -3,6 +3,7 @@
 import useLevelData from '@/hooks/useLevelData';
 import useSaveData from '@/hooks/useSaveData';
 import type { LevelID } from '@/levels';
+import levelData from '@/utils/levelData';
 import { useState } from 'react';
 
 export default function LevelResult({ questionCount, totalTime = 60, levelId }: {
@@ -12,12 +13,17 @@ export default function LevelResult({ questionCount, totalTime = 60, levelId }: 
 }) {
     const [updated, setUpdated] = useState(false);
     const [, dispatchSave] = useSaveData();
-    const { speedUnlocked, raw: { maxAccuracy, maxQuestionCount }, accStarCount, questionStarCount } = useLevelData(levelId);
+    const { speedUnlocked, raw: { maxAccuracy, maxQuestionCount } } = useLevelData(levelId);
     const [wasSpeedUnlocked] = useState(speedUnlocked);
     const acc = (questionCount[0] / questionCount[1] * 100) || 0;
     const [newRecAcc] = useState(acc > maxAccuracy);
     const speed = (questionCount[0] / totalTime);
     const [newRecSpeed] = useState((speed > maxQuestionCount) && speedUnlocked);
+    const { accStarCount, questionStarCount } = levelData({
+        levelId,
+        maxAccuracy: acc,
+        maxQuestionCount: speed,
+    });
     if (!updated) {
         if (newRecAcc) dispatchSave({
             levelId,
