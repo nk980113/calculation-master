@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "calculation-master",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.calculationMaster.eggeggegg",
+      "identifier": "com.eggeggegg.calculationMaster",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

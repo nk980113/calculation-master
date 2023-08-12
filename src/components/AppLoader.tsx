@@ -11,7 +11,9 @@ export default function AppLoader() {
     // eslint-disable-next-line prefer-const
     let [levelData, setResolvedLevelData] = useState<LevelData[] | undefined>();
     useEffect(() => {
-        setLevelDataPromise(invoke<BackendLevelData[]>('try_read').then(fromBackend));
+        setLevelDataPromise(invoke<BackendLevelData[]>('try_read').then(fromBackend).catch((r) => {
+            throw r;
+        }));
     }, []);
     if (!levelDataPromise) return null;
     if (!levelData) {
